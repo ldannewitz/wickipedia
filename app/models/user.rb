@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
   has_many :edits, foreign_key: :editor_id
   has_many :edited_articles, through: :edits, source: :article
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness:true
   validates :email, presence: true
 end

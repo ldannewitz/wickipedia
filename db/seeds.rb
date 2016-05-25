@@ -4,6 +4,13 @@
 # Examples:
 #
 
+tables = ActiveRecord::Base.connection.tables - ['schema_migrations']
+
+tables.each do |table|
+  ActiveRecord::Base.connection.execute "DELETE FROM `#{table}`"
+  ActiveRecord::Base.connection.execute "ALTER TABLE `#{table}` AUTO_INCREMENT = 1"
+end
+
 Category.create!(name: 'Scented')
 Category.create!(name: 'Birthday')
 Category.create!(name: 'DIY')
