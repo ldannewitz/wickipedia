@@ -1,8 +1,10 @@
-<%= form_for @article do |f| %>
+<div>
+  <%= form_for @edit, url: update_article_path do |f| %>
 
-  <%= f.label_for :content %><br>
-  <%= f.cktext_area :content, class: 'ckeditor' %>
+    <%= f.label :content %><br>
+    <%= f.cktext_area :content, class: 'ckeditor', value: @last_edit %>
 
-  <%= f.submit %>
+    <%= f.submit %>
 
-<% end %>
+  <% end %>
+</div>
