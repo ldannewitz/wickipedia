@@ -1,0 +1,14 @@
+<div>
+  <% @users.each do |user| %>
+    <div>
+      <%= user.username %>
+       | 
+      <% if user_signed_in? %>
+        <% if current_user %>
+          <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+      <% end %>
+    </div>
+
+  <% end %>
+</div>
