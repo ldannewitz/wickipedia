@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#login', as: 'login'
   get '/logout' => 'sessions#logout', as: 'logout'
+  get '/search' => 'search#index', as: 'search'
 
   get '/:category' => 'categories#show', as: 'a_category'
 

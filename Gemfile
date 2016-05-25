@@ -30,6 +30,7 @@ gem 'bootstrap'
 gem 'capybara'
 gem 'rspec-rails'
 gem 'sass'
+gem 'font-awesome-sass', '~> 4.6.2'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
