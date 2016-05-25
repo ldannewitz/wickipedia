@@ -23,7 +23,11 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-    @last_edit = Edit.last.content
+    if @article.edits.last == nil
+      @last_edit = ""
+    else
+      @last_edit = @article.edits.last.content
+    end
     @edit = Edit.new
   end
 
@@ -39,6 +43,7 @@ class ArticlesController < ApplicationController
   def destroy
 
   end
+
   private
     def article_params
       params.require(:article).permit(:title, :category_id)

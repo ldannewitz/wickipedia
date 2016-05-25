@@ -1,4 +1,6 @@
-<div>
+<div class="article">
+  <%= render "links_partial" %>
+
   <%= form_for @edit, url: update_article_path do |f| %>
 
     <%= f.label :content %><br>

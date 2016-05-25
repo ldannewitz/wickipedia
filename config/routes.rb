@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/:category' => 'categories#show', as: 'a_category'
 
   get '/:category/articles/:id' => 'articles#show', as: 'articles'
-  get '/articles/new' => 'articles#new' #, as: 'articles'
+  get '/articles/new' => 'articles#new'
   post '/articles' => 'articles#create', as: 'create_article'
   get '/:category/articles/:id/edit' => 'articles#edit', as: 'edit_article'
   post '/:category/articles/:id/edit' => 'articles#update', as: 'update_article'

@@ -1,4 +1,6 @@
-<%= link_to "Edit", edit_article_path(@category, @article) %>
+<div class="article">
+
+<%= render "links_partial" %>
 
 <h2><%=@article.title%></h2>
 
@@ -12,3 +14,4 @@ This article has no body!!!
 
 <% end %>
 
+</div>

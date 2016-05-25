@@ -1,0 +1,6 @@
+<%= link_to "View", articles_path(@article.category, @article) %>
+<span class="article-nav-right">
+  <%= link_to "Edit", edit_article_path(@article.category, @article) %>
+<%= link_to "History", edit_article_path(@article.category, @article) %>
+<%= link_to "Comments", comment_path(@article.category, @article) %>
+</span>
