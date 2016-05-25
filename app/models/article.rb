@@ -4,5 +4,5 @@ class Article < ActiveRecord::Base
   has_many :edits
   has_many :editors, through: :edits
   has_many :comments
-  has_many :commentors, through: :comments
+  has_many :commenters, through: :comments
 end
