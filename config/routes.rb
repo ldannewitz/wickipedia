@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/login' => 'sessions#login', as: 'login'
-  get '/logout' => 'sessions#logout', as: 'logout'
+  get '/register' => 'users#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#login'
+  get '/logout' => 'sessions#logout'
 
   get '/:category' => 'categories#show', as: 'a_category'
 
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
   get '/:category/articles/:id/comments/edit' => 'comments#edit', as: 'edit_comment'
   put '/:category/articles/:id/comments' => 'comments#update', as: 'update_comment'
   delete '/:category/articles/:id/comments' => 'comments#destroy', as: 'delete_comment'
+
 
 
   # Example of regular route:
