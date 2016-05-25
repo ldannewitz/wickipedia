@@ -3,7 +3,29 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
+
+  resources :users
+
+  get '/login' => 'sessions#login', as: 'login'
+  get '/logout' => 'sessions#logout', as: 'logout'
+
+  get '/:category' => 'categories#show', as: 'a_category'
+
+  get '/:category/articles/:id' => 'articles#show', as: 'article'
+  get '/:category/articles/new' => 'articles#new', as: 'new_article'
+  post '/:category/articles/:id' => 'articles#create', as: 'create_article'
+  get '/:category/articles/:id/edit' => 'articles#edit', as: 'edit_article'
+  put '/:category/articles/:id' => 'articles#update', as: 'update_article'
+  delete '/:category/articles/:id' => 'articles#destroy', as: 'delete_article'
+
+  get '/:category/articles/:id/comments' => 'comments#show', as: 'comment'
+  get '/:category/articles/:id//comments/new' => 'comments#new', as: 'new_comment'
+  post '/:category/articles/:id/comments' => 'comments#create', as: 'create_comment'
+  get '/:category/articles/:id/comments/edit' => 'comments#edit', as: 'edit_comment'
+  put '/:category/articles/:id/comments' => 'comments#update', as: 'update_comment'
+  delete '/:category/articles/:id/comments' => 'comments#destroy', as: 'delete_comment'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
