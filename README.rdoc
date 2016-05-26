@@ -1,4 +1,25 @@
-== README
+== README - Wickipedia
+
+A free candle encyclopedia built collaboratively
+
+Contributors:
+
+* Alex Wen - thatnewwen[https://github.com/thatnewwen]
+* Ben Sanecki - BenSanex[https://github.com/BenSanex]
+* Lisa Dannewitz - ldannewitz[https://github.com/ldannewitz]
+* Tomasz Sok - tomsapps[https://github.com/tomsapps]
+
+
+To install the code locally, run:
+
+* <tt>git clone https://github.com/ldannewitz/wickipedia.git</tt>
+* <tt>cd wickipedia</tt>
+* <tt>bundle</tt>
+* <tt>be rake db:create</tt>
+* <tt>be rake db:migrate</tt>
+* <tt>be rake db:seed</tt>
+* <tt>rails s</tt>
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

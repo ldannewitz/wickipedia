@@ -4,15 +4,17 @@
 # Examples:
 #
 
+Category.destroy_all
+
 Category.create!(name: 'Scented')
 Category.create!(name: 'Birthday')
 Category.create!(name: 'DIY')
 Category.create!(name: 'Decorative')
-Category.create!(name: 'Birthday')
 Category.create!(name: 'Accessories')
 Category.create!(name: 'Flameless')
 Category.create!(name: 'Hazards')
 Category.create!(name: 'History')
+Category.create!(name: 'Roman')
 
 User.create!(username: "candleperson", email: "candle@candle.com", admin: true, password: "password")
 

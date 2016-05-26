@@ -3,6 +3,6 @@
 <span class="article-nav-right">
 <span class="article-link"><%= link_to "Edit", edit_article_path(@article.category, @article) %></span>
 <span class="article-link"><%= link_to "History", edit_article_path(@article.category, @article) %></span>
-<span class="article-link"><%= link_to "Comments", comment_path(@article.category, @article) %></span>
+<span class="article-link"><%= link_to "Comments", article_comments_path(@article.category, @article) %></span>
 </span>
 </div>
