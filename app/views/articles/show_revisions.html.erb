@@ -1,0 +1,15 @@
+<div class="article">
+  <%= render "/articles/links_partial" %>
+  <div class="content">
+
+    <% @edits.each do |edit| %>
+      <div class="edit entry">
+
+        <%=  raw edit.difference %><br>
+        <%= edit.editor.username %>
+        <%= time_ago_in_words(edit.created_at) %>
+      </div><br><br><br>
+    <% end %>
+  </div>
+  <%= render "footer_links_partial" %>
+</div>

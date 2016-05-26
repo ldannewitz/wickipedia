@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  include ApplicationHelper
 
  def show
     @article = Article.find(params[:id])
@@ -25,6 +26,8 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    authenticate_user!
+
     @article = Article.find(params[:id])
     if @article.edits.last == nil
       @last_edit = ""
@@ -39,7 +42,9 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article = Article.find(params[:id])
     @edit = Edit.new(edit_params.merge(article_id: params[:id], editor_id: session[:user_id]))
+    @edit.find_differences(@article)
     if @edit.save
       redirect_to articles_path
     else
@@ -48,7 +53,16 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    authenticate_user!
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to root_path
+  end
 
+
+  def show_revisions
+    @article = Article.find(params[:id])
+    @edits = @article.edits
   end
 
   def publish_article
