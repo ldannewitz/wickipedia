@@ -57,14 +57,16 @@
 
     <div id="side-bar" class="list-group">
       <p id="side-bar-title" class="list-group-item">Categories</p>
-      <% Category.all.each do |category| %>
+      <% Category.all.order(:name).each do |category| %>
         <%= link_to category.name, a_category_path(category.name), class: "list-group-item" %>
-        <!-- <a href="#" class="list-group-item">Dapibus ac facilisis in -->
       <% end %>
+      <%= link_to "About", root_path, class: "list-group-item", id: "about" %>
     </div>
 
 
-    <div id="page-content"><%= yield %></div>
+    <div id="page-content">
+      <%= yield %>
+    </div>
   </div>
 
 </body>

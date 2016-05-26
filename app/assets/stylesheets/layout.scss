@@ -36,6 +36,11 @@ nav {
     .list-group-item {
       border: 0;
     }
+
+    #about {
+      position: absolute;
+      bottom: 0;
+    }
   }
 
   .list-group-item:first-child {
