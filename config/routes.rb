@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#login'
   get '/logout' => 'sessions#logout'
+  get '/search' => 'search#index', as: 'search'
 
   get '/:category' => 'categories#show', as: 'a_category'
 
