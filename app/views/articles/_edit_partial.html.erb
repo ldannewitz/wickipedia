@@ -1,5 +1,3 @@
-  <%= render "links_partial" %>
-  <div class="content">
   <%= form_for @edit, url: update_article_path do |f| %>
 
     <%= f.label :content %><br>
@@ -8,4 +6,3 @@
     <%= f.submit %>
 
   <% end %>
-  </div>
