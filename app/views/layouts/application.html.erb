@@ -61,7 +61,7 @@
       <% Category.all.order(:name).each do |category| %>
         <%= link_to category.name, a_category_path(category.name), class: "list-group-item" %>
       <% end %>
-      <%= link_to "About", root_path, class: "list-group-item", id: "about" %>
+      <%= link_to "About", about_path, class: "list-group-item", id: "about" %>
     </div>
 
 
