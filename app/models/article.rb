@@ -7,6 +7,7 @@ class Article < ActiveRecord::Base
   has_many :commenters, through: :comments
   validates :title, :category_id, presence:true
 
+
   def feature
     if self.published
       self.featured = true
@@ -29,5 +30,18 @@ class Article < ActiveRecord::Base
       self.save
     end
     # self
+  end
+
+  def self.matched_articles(search_term)
+    matches = []
+
+    self.all.each do |article|
+      if article.title.downcase.include?(search_term.downcase)
+        matches << article
+      elsif article.edits.last.content.downcase.include?(search_term.downcase)
+        matches << article
+      end
+    end
+    matches
   end
 end
