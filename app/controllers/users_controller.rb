@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  include SessionsHelper
+  include ApplicationHelper
 
   before_filter :redirect_unless_admin, only: [:index]
 
