@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/about' => 'welcome#about'
 
-  resources :users
+  resources :users do
+    member do
+      put 'promote_to_admin'
+      put 'demote_from_admin'
+    end
+  end
 
   get '/register' => 'users#new'
   get '/login' => 'sessions#new'

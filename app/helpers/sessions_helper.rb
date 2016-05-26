@@ -13,10 +13,14 @@ module SessionsHelper
   end
 
   def redirect_unless_admin
-    redirect_to request.original_url unless admin_signed_in?
+    redirect_to '/' unless admin_signed_in?
   end
 
   def authenticate_user!
     redirect_to root_path unless current_user
+  end
+
+  def current_user_is_on_their_own_page?
+    current_user.id == @user.id
   end
 end
