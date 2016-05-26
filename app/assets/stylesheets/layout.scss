@@ -9,7 +9,19 @@ body {
   height: 100vh;
 }
 
-nav {
+nav.navbar-default {
+  div.navbar-header {
+
+    .navbar-brand {
+      width: 200px;
+    }
+    img {
+      height: 24px;
+      display: inline;
+      vertical-align: inherit;
+    }
+  }
+
   #search-button {
     margin-left: -8px;
     border-top-left-radius: 0;
