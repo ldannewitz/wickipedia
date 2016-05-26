@@ -3,6 +3,9 @@ class ArticlesController < ApplicationController
  def show
     @article = Article.find(params[:id])
     @category = @article.category
+    if request.xhr?
+      render '_show_partial', layout: false
+    end
   end
 
   def new
@@ -29,6 +32,10 @@ class ArticlesController < ApplicationController
       @last_edit = @article.edits.last.content
     end
     @edit = Edit.new
+
+    if request.xhr?
+      render '_edit_partial', layout: false
+    end
   end
 
   def update

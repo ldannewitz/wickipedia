@@ -1,17 +1,4 @@
 <div class="article">
 
-<%= render "links_partial" %>
-
-<h2><%=@article.title%></h2>
-
-<% if @article.edits.length > 0 %>
-
-<%= raw @article.edits.last.content %>
-
-<% else %>
-
-This article has no body!!!
-
-<% end %>
-
+<%= render "show_partial" %>
 </div>

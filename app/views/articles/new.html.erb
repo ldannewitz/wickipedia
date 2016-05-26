@@ -1,14 +1,12 @@
 <div class="article">
-
-  <%= render "links_partial" %>
-
+<h2>Create a new article</h2>
   <%= form_for @article, url: create_article_path do |f| %>
 
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title %><br>
 
     <%= f.label :category_id %><br>
-    <%= f.select :category_id, options_for_select(@categories) %>
+    <%= f.select :category_id, options_for_select(@categories) %><br>
 
     <%= f.submit %>
 
