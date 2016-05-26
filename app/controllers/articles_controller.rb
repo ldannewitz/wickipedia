@@ -90,7 +90,14 @@ class ArticlesController < ApplicationController
     # if @article.published
     #   @article.feature
     # end
-    redirect_to @article
+    redirect_to articles_path(@article.category.name, @article)
+  end
+
+  def unfeature_article
+    @article = Article.find(params[:id])
+    @article.unfeature
+
+    redirect_to articles_path(@article.category.name, @article)
   end
 
   private

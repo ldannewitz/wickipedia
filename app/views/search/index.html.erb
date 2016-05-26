@@ -1,7 +1,11 @@
 <p>This is what you get searching for "<%= params[:term] %>"</p>
 
+
+<% articles = current_user ? @category.articles : @category.published %>
+
 <p class="lead result-title">Matched Articles</p>
-<% @articles = @articles.sort{|a,b| a.title <=> b.title} %>
+<% articles = user_signed_in? ? @articles : @articles.select(&:published) %>
+<% articles.sort{|a,b| a.title <=> b.title} %>
 <% @articles.each do |article| %>
   <p><%= link_to article.title, articles_path(article.category.name, article.id) %></p>
 <% end %>

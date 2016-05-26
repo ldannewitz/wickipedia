@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness:true
   validates :email, presence: true
+
+  def promote
+    self.update_attribute(:admin, true)
+  end
+
+  def demote
+    self.update_attribute(:admin, false)
+  end
 end

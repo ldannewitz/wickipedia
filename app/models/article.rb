@@ -12,6 +12,10 @@ class Article < ActiveRecord::Base
     self.update_attribute(:featured, true) if self.published
   end
 
+  def unfeature
+    self.update_attribute(:featured, false) if self.featured
+  end
+
   def publish
     self.update_attribute(:published, true)
   end
