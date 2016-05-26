@@ -3,7 +3,8 @@
 }
 
 body {
-  background-color: salmon;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   height: 100vh;
 }
@@ -17,15 +18,24 @@ nav {
 }
 
 .flex-container {
-  background-color: whitesmoke;
+  flex: 1 100%;
   display: flex;
-  justify-content: flex-start;
+  align-items: stretch;
   margin-top: -20px;
-  /*height: 90vh;*/
-  bottom: 0;
 
   #side-bar {
     margin-right: 2%;
+    margin-bottom: 0;
+    border-right: 1px solid #ddd;
+    border-top-right-radius: 0;
+
+    #side-bar-title {
+      border-bottom: 3.5px solid #ddd;
+    }
+
+    .list-group-item {
+      border: 0;
+    }
   }
 
   .list-group-item:first-child {
