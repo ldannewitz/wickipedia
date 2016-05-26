@@ -1,6 +1,6 @@
 <h2>Today's Featured Articles</h2>
 
-<% Article.all.where(featured:true).each do |article| %>
+<% @featured_articles.each do |article| %>
   <p class="lead"><%= link_to article.title, articles_path(article.category.name, article.id) %></p>
   <p class="follow">--<%= article.category.name %></p>
 <% end %>

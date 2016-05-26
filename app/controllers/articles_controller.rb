@@ -51,12 +51,41 @@ class ArticlesController < ApplicationController
 
   end
 
-  private
-    def article_params
-      params.require(:article).permit(:title, :category_id)
-    end
+  def publish_article
+    article = Article.find(params[:id])
+    article.publish
 
-    def edit_params
-      params.require(:edit).permit(:content)
-    end
+    redirect_to article
+  end
+
+  def unpublish_article
+    article = Article.find(params[:id])
+    article.unpublish
+
+    redirect_to article
+  end
+
+  def feature_article
+    @article = Article.find(params[:id])
+    @article.feature
+
+    # ===========
+    # articles = Article.where(published: true)
+    # @article = articles.find(params[:id])
+
+    # if @article.published
+    #   @article.feature
+    # end
+    redirect_to @article
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :category_id)
+  end
+
+  def edit_params
+    params.require(:edit).permit(:content)
+  end
 end
