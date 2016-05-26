@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  # before_action :index
+
+  include SessionsHelper
+
+  before_filter :redirect_unless_admin, only: [:index]
 
   def new
     @user = User.new
@@ -26,6 +29,20 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
+    redirect_to users_path
+  end
+
+  def promote_to_admin
+    @user = User.find(params[:id])
+    @user.admin = true
+    @user.save
+    redirect_to users_path
+  end
+
+  def demote_from_admin
+    @user = User.find(params[:id])
+    @user.admin = false
+    @user.save
     redirect_to users_path
   end
 

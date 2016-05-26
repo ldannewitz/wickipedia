@@ -6,7 +6,16 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/about' => 'welcome#about'
 
-  resources :users
+  resources :users do
+    member do
+      put 'promote_to_admin'
+      put 'demote_from_admin'
+    end
+  end
+
+  put '/:category/articles/:id' => 'articles#publish_article', as: 'publish_article'
+  put '/:category/articles/:id' => 'articles#unpublish_article', as: 'unpublish_article'
+  put '/:category/articles/:id' => 'articles#feature_article', as: 'feature_article'
 
   get '/register' => 'users#new'
   get '/login' => 'sessions#new'
