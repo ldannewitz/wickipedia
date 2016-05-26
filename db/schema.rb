@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160525160626) do
     t.integer  "article_id", null: false
     t.integer  "editor_id",  null: false
     t.text     "content",    null: false
+    t.string   "difference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def index
     @article = Article.find(params[:id])
-    @comments = Comment.all
+    @comments = Comment.where(article_id: @article.id)
     @comment = Comment.new
   end
 
