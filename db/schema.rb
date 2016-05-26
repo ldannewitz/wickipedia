@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160525160626) do
     t.string   "title",                       null: false
     t.integer  "category_id",                 null: false
     t.boolean  "featured",    default: false
+    t.boolean  "published",   default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
@@ -44,16 +45,6 @@ ActiveRecord::Schema.define(version: 20160525160626) do
     t.text     "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "sources", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.string   "author"
-    t.string   "publication"
-    t.string   "url"
-    t.integer  "article_id",  null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
