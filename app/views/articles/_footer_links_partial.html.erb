@@ -1,0 +1,10 @@
+<div class="footer-links-partial">
+    <% if user_signed_in? %>
+      <span class="article-link"><%= link_to "Publish", publish_path(@article.category, @article), method: :put %></span>
+    <% end %>
+
+    <% if admin_signed_in? %>
+      <span class="article-link"><%= link_to "Feature", feature_path(@article.category, @article), method: :put %></span>
+      <span class="article-link"><%= link_to "Delete", delete_article_path(@article.category, @article), method: :delete %></span>
+    <% end %>
+</div>

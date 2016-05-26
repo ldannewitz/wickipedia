@@ -4,6 +4,7 @@ class CreateEdits < ActiveRecord::Migration
       t.integer :article_id, null:false
       t.integer :editor_id, null:false
       t.text :content, null:false
+      t.string :difference
 
       t.timestamps null: false
     end

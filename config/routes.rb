@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   post '/:category/articles/:id/edit' => 'articles#update', as: 'update_article'
   delete '/:category/articles/:id' => 'articles#destroy', as: 'delete_article'
 
+
   get '/:category/articles/:id/comments' => 'comments#index', as: 'article_comments'
   post '/:category/articles/:id/comments' => 'comments#create', as: 'create_comment'
   get '/:category/articles/:id/comments/new' => 'comments#new', as: 'new_comment'
