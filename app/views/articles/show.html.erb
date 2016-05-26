@@ -1,14 +1,4 @@
-<%= link_to "Edit", edit_article_path(@category, @article) %>
+<div class="article">
 
-<h2><%=@article.title%></h2>
-
-<% if @article.edits.length > 0 %>
-
-<%= raw @article.edits.last.content %>
-
-<% else %>
-
-This article has no body!!!
-
-<% end %>
-
+<%= render "show_partial" %>
+</div>

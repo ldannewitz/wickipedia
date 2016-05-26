@@ -1,10 +1,5 @@
-<div>
-  <%= form_for @edit, url: update_article_path do |f| %>
+<div class="article">
 
-    <%= f.label :content %><br>
-    <%= f.cktext_area :content, class: 'ckeditor', value: @last_edit %>
+  <%= render "edit_partial" %>
 
-    <%= f.submit %>
-
-  <% end %>
 </div>

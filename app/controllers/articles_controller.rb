@@ -3,6 +3,9 @@ class ArticlesController < ApplicationController
  def show
     @article = Article.find(params[:id])
     @category = @article.category
+    if request.xhr?
+      render '_show_partial', layout: false
+    end
   end
 
   def new
@@ -23,8 +26,16 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-    @last_edit = Edit.last.content
+    if @article.edits.last == nil
+      @last_edit = ""
+    else
+      @last_edit = @article.edits.last.content
+    end
     @edit = Edit.new
+
+    if request.xhr?
+      render '_edit_partial', layout: false
+    end
   end
 
   def update
@@ -39,6 +50,7 @@ class ArticlesController < ApplicationController
   def destroy
 
   end
+
   private
     def article_params
       params.require(:article).permit(:title, :category_id)
