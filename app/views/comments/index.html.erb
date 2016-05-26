@@ -1,0 +1,21 @@
+<div class="article">
+  <%= render "/articles/links_partial" %>
+  <div class="content">
+
+    <% @comments.each do |comment| %>
+      <%= comment.content %>-
+      <%= comment.commenter.username %>
+    <% end %>
+
+  <div class="comment-form">
+    <h3>New Comment</h3>
+    <%= form_for @comment, url: create_comment_path do |f| %>
+
+      <%= f.label :content %><br>
+      <%= f.text_field :content %><br><br>
+      <%= f.submit %>
+
+    <% end %>
+  </div>
+  </div>
+</div>
