@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @edit = Edit.new(edit_params.merge(article_id: params[:id], editor_id: 1))
+    @edit = Edit.new(edit_params.merge(article_id: params[:id], editor_id: session[:user_id]))
     if @edit.save
       redirect_to articles_path
     else
