@@ -54,7 +54,19 @@
 
 <body>
 
-<%= yield %>
+  <div class="flex-container">
+
+    <div id="side-bar" class="list-group">
+      <p class="list-group-item">Categories</p>
+      <% Category.all.each do |category| %>
+        <%= link_to category.name, a_category_path(category.name), class: "list-group-item" %>
+        <!-- <a href="#" class="list-group-item">Dapibus ac facilisis in -->
+      <% end %>
+    </div>
+
+
+    <div id="page-content"><%= yield %></div>
+  </div>
 
 </body>
 </html>

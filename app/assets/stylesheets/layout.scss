@@ -5,6 +5,7 @@
 body {
   background-color: salmon;
   margin: 0;
+  height: 100vh;
 }
 
 nav {
@@ -12,5 +13,29 @@ nav {
     margin-left: -8px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+.flex-container {
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: -20px;
+  /*height: 90vh;*/
+  bottom: 0;
+
+  #side-bar {
+    margin-right: 2%;
+  }
+
+  .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: #2196f3;
+    border-color: #2196f3;
+    background-image: none;
   }
 }
