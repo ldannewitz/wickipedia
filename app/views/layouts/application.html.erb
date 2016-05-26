@@ -7,13 +7,6 @@
   <%= csrf_meta_tags %>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/candle.png" />
 
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
-
-  <!-- Optional theme -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
-
-  <!-- Latest compiled and minified JavaScript -->
-  <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap.min.css">
 </head>
 
@@ -59,7 +52,7 @@
     <div id="side-bar" class="list-group">
       <p id="side-bar-title" class="list-group-item">Categories</p>
       <% Category.all.order(:name).each do |category| %>
-        <%= link_to category.name, a_category_path(category.name), class: "list-group-item" %>
+        <%= link_to category.name, a_category_path(category.name), class: "list-group-item #{"active" if category.name == params[:category]}" %>
       <% end %>
       <%= link_to "About", about_path, class: "list-group-item", id: "about" %>
     </div>
