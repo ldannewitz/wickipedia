@@ -5,7 +5,7 @@
     <% @edits.each do |edit| %>
       <div class="edit entry">
 
-        <%=  raw edit.difference %><br>
+        <%= raw edit.difference %><br>
         <%= edit.editor.username %>
         <%= time_ago_in_words(edit.created_at) %>
       </div><br><br><br>

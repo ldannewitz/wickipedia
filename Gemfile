@@ -31,6 +31,8 @@ gem 'rspec-rails'
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'diffy'
+gem 'rails_12factor'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -40,6 +42,7 @@ gem 'diffy'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'simplecov'
 end
 
 group :development do
