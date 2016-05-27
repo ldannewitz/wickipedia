@@ -13,8 +13,21 @@ nav.navbar-default {
   div.navbar-header {
 
     .navbar-brand {
-      width: 200px;
+      /*width: 200px;*/
+      /*padding: 0;*/
     }
+
+    .logo {
+      height: 64px;
+      padding: 15px;
+      content: url(Logo-default.png)
+
+    }
+
+    .logo:hover {
+      content: url(Logo-hover.png);
+    }
+
     img {
       height: 24px;
       display: inline;
@@ -23,7 +36,6 @@ nav.navbar-default {
   }
 
   #search-button {
-    margin-left: -8px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     box-shadow: 0 0 0;
