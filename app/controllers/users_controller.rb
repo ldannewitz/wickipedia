@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    redirect_unless_admin
     @users = User.all
   end
 
@@ -25,6 +26,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @edits = @user.edits.reverse
+    @comments = @user.comments.reverse
   end
 
   def destroy
