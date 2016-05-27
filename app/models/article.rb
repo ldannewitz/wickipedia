@@ -8,19 +8,19 @@ class Article < ActiveRecord::Base
 
 
   def feature
-    self.update_attribute(:featured, true) if self.published
+    update_attribute(:featured, true) if self.published
   end
 
   def unfeature
-    self.update_attribute(:featured, false) if self.featured
+    update_attribute(:featured, false) if self.featured
   end
 
   def publish
-    self.update_attribute(:published, true)
+    update_attribute(:published, true)
   end
 
   def unpublish
-    self.update_attribute(:published, false)
+    update_attribute(:published, false)
   end
 
   def self.matched_articles(search_term)

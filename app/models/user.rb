@@ -9,10 +9,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true
 
   def promote
-    self.update_attribute(:admin, true)
+    update_attribute(:admin, true)
   end
 
   def demote
-    self.update_attribute(:admin, false)
+    update_attribute(:admin, false)
   end
 end
