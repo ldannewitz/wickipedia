@@ -1,24 +1,25 @@
 <div class="article">
   <%= render "/articles/links_partial" %>
   <div class="content">
+    <h4>Comments</h4>
 
     <% @comments.each do |comment| %>
       <%= comment.content %>-
-      <%= comment.commenter.username %>
+      <%= comment.commenter.username %><br>
     <% end %>
 
 <% if user_signed_in? %>
   <div class="comment-form">
-    <h3>New Comment</h3>
     <%= form_for @comment, url: create_comment_path do |f| %>
 
-      <%= f.label :content %><br>
+      <%= f.label :"Add a new comment" %><br>
       <%= f.text_field :content %><br><br>
       <%= f.submit %>
-
+  <% end %>
+<% else %>
+Please login to post comments.
     <% end %>
   </div>
-  <% end %>
   </div>
   <%= render "/articles/footer_links_partial" %>
 </div>

@@ -3,10 +3,10 @@
   <div class="content">
 
     <% @edits.each do |edit| %>
-      <div class="edit entry">
+      <div class="edit-entry">
 
         <%= raw edit.difference %><br>
-        <%= edit.editor.username %>
+        Edited by <b><%= edit.editor.username %></b>
         <%= time_ago_in_words(edit.created_at) %>
       </div><br><br><br>
     <% end %>
