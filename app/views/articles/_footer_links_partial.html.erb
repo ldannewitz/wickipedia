@@ -14,7 +14,11 @@
         <% if @article.featured %>
           <%= link_to "Unfeature", unfeature_article_path(@article.category.name, @article), method: :put %>
         <% else %>
-          <%= link_to "Feature", feature_article_path(@article.category.name, @article), method: :put %>
+          <% if @article.published %>
+            <%= link_to "Feature", feature_article_path(@article.category.name, @article), method: :put %>
+          <% else %>
+            <%= link_to "Feature", feature_article_path(@article.category.name, @article), method: :put, data: { confirm: "This will automatically publish the article as well."} %>
+          <% end %>
         <% end %>
       </span>
 
