@@ -1,17 +1,28 @@
-<p>This is what you get searching for "<%= params[:term] %>"</p>
+<% if results? %>
+	<p>This is what you get searching for "<%= params[:term] %>"</p>
 
+	<h3 class="result-title">Matched Articles</h3>
 
-<p class="lead result-title">Matched Articles</p>
-<% articles = user_signed_in? ? @articles : @articles.select(&:published) %>
+	  <% @articles.each do |article| %>
+	    <p class="lead"><%= link_to article.title, articles_path(article.category.name, article.id) %></p>
+	  <% end %>
 
-  <% articles.sort{|a,b| a.title <=> b.title} %>
-  <% articles.each do |article| %>
-    <p><%= link_to article.title, articles_path(article.category.name, article.id) %></p>
-  <% end %>
+	<% if @categories.all.count > 0 %>
+	  <h3 class="result-title">Matched Categories</h3>
+	  <% @categories.sort.each do |category| %>
+	    <p class="lead"><%= link_to category.name, a_category_path(category.name) %></p>
+	  <% end %>
+	<% end %>
+	
+	<% if @image_jpg %>
+		<img src="<%= @image_jpg %>" alt="dank_meme">
+	<% else %>
+		<div id="silencer"><iframe src="//giphy.com/embed/axYOThJ5Qbwac?hideSocial=true" width="480" height="240" frameborder="0" class="giphy-embed" allowfullscreen=""></iframe></div>
+	<% end %>
 
-<% if @categories.all.count > 0 %>
-  <p class="lead result-title">Matched Categories</p>
-  <% @categories.sort.each do |category| %>
-    <p><%= link_to category.name, a_category_path(category.name) %></p>
-  <% end %>
+<% else %>
+	<div id="silencer">
+		<p>No results for "<%= params[:term] %>". Please wick again.</p>
+		<iframe src="//giphy.com/embed/axYOThJ5Qbwac?hideSocial=true" width="480" height="240" frameborder="0" class="giphy-embed" allowfullscreen=""></iframe>
+	</div>
 <% end %>

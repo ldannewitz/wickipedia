@@ -33,6 +33,6 @@ class Article < ActiveRecord::Base
         matches << article
       end
     end
-    matches
+    matches = matches.sort{|a,b| a.title <=> b.title}
   end
 end

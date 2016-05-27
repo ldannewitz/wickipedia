@@ -1,5 +1,14 @@
 #page-content {
   .result-title {
-    margin-top: 2%;
+    color: #666666;
+  }
+
+  #silencer {
+		pointer-events: none;
+		margin: 1%;
+
+		.giphy-embed {
+			margin-top: 1%;
+		}
   }
 }
