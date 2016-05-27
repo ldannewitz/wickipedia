@@ -1,10 +1,25 @@
 <div class="footer-links-partial">
     <% if user_signed_in? %>
-      <span class="article-link"><%= link_to "Publish", publish_article_path(@article.category.name, @article), method: :put %></span>
+      <span class="article-link">
+        <% if @article.published %>
+          <%= link_to "Unpublish", unpublish_article_path(@article.category.name, @article), method: :put %>
+        <% else %>
+          <%= link_to "Publish", publish_article_path(@article.category.name, @article), method: :put %>
+        <% end %>
+      </span>
     <% end %>
 
     <% if admin_signed_in? %>
-      <span class="article-link"><%= link_to "Feature", feature_article_path(@article.category.name, @article), method: :put %></span>
-      <span class="article-link"><%= link_to "Delete", delete_article_path(@article.category.name, @article), method: :delete %></span>
+      <span class="article-link">
+        <% if @article.featured %>
+          <%= link_to "Unfeature", unfeature_article_path(@article.category.name, @article), method: :put %>
+        <% else %>
+          <%= link_to "Feature", feature_article_path(@article.category.name, @article), method: :put %>
+        <% end %>
+      </span>
+
+      <span class="article-link">
+        <%= link_to "Delete", delete_article_path(@article.category.name, @article), method: :delete %>
+      </span>
     <% end %>
 </div>
