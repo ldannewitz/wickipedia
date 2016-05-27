@@ -16,7 +16,13 @@
 
 .content {
   background-color: #EAEAEA;
-  padding: 1em 1em 2em 1em;
+  padding: 1em 2em 2em 2em;
+  overflow: auto;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .article-link {
