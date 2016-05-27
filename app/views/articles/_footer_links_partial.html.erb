@@ -19,7 +19,7 @@
       </span>
 
       <span class="article-link">
-        <%= link_to "Delete", delete_article_path(@article.category.name, @article), method: :delete %>
+        <%= link_to "Delete", delete_article_path(@article.category.name, @article), method: :delete, data: { confirm: "Are you sure?" }%>
       </span>
     <% end %>
 </div>

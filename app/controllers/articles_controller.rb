@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to articles_path(@article.category, @article)
+      redirect_to edit_article_path(@article.category, @article)
     else
       render 'new'
     end
