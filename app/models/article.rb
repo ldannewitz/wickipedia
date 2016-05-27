@@ -1,8 +1,8 @@
 class Article < ActiveRecord::Base
   belongs_to :category
-  has_many :edits
+  has_many :edits, dependent: :destroy
   has_many :editors, through: :edits
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :commenters, through: :comments
   validates :title, :category_id, presence:true
 
