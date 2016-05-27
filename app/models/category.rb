@@ -6,6 +6,7 @@ class Category < ActiveRecord::Base
   end
 
   def self.matched_categories(search_term)
-    matches = self.where("lower(name) LIKE ?", "%#{search_term.downcase}%")
+    search_term = search_term.downcase
+    where("lower(name) LIKE ?", "%#{search_term}%" )
   end
 end
