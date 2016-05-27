@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+  include ApplicationHelper
+
   def index
     @article = Article.find(params[:id])
     @comments = Comment.where(article_id: @article.id)
