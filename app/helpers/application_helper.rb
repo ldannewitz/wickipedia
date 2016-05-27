@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def redirect_unless_admin
-    redirect_to request.original_url unless admin_signed_in?
+    redirect_to '/' unless admin_signed_in?
   end
 
   def authenticate_user!
