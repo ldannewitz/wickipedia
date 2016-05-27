@@ -6,15 +6,23 @@
     <h2><%= @user.username %>'s profile</h2>
   <% end %>
 
-  <h4>Edits Made</h4>
-  <% @edits.each do |edit| %>
-    <%= link_to edit.article.title, articles_path(edit.article.category.name, edit.article.id) %> - edit made <%=time_ago_in_words(edit.created_at)%> ago<br>
+  <% if @edits.empty? %>
+    <h4>No Edits Made Yet...Get wicking!</h4>
+  <% else %>
+    <h4>Edits Made</h4>
+    <% @edits.each do |edit| %>
+      <%= link_to edit.article.title, articles_path(edit.article.category.name, edit.article.id) %> - edit made <%=time_ago_in_words(edit.created_at)%> ago<br>
+    <% end %>
   <% end %>
 
-  <h4>Comments Made</h4>
-  <% @comments.each do |comment| %>
-    <b><%= comment.content%></b><br>
-     From <%= link_to comment.article.title, articles_path(comment.article.category.name, comment.article.id) %> - comment made <%=time_ago_in_words(comment.created_at)%> ago<br>
+  <% if @comments.empty? %>
+    <h4>No Comments Made Yet...Get wicking!</h4>
+  <% else %>
+    <h4>Comments Made</h4>
+    <% @comments.each do |comment| %>
+      <b><%= comment.content%></b><br>
+       From <%= link_to comment.article.title, articles_path(comment.article.category.name, comment.article.id) %> - comment made <%=time_ago_in_words(comment.created_at)%> ago<br>
+    <% end %>
   <% end %>
 
 </div>
