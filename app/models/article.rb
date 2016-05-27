@@ -1,6 +1,5 @@
 class Article < ActiveRecord::Base
   belongs_to :category
-  has_many :sources
   has_many :edits
   has_many :editors, through: :edits
   has_many :comments
@@ -34,6 +33,6 @@ class Article < ActiveRecord::Base
         matches << article
       end
     end
-    matches
+    matches = matches.sort{|a,b| a.title <=> b.title}
   end
 end
