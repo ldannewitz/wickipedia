@@ -6,7 +6,7 @@
       <div class="edit-entry">
 
         <%= raw edit.difference %><br>
-        Edited by <b><%= edit.editor.username %></b>
+        Edited by <b><%= link_to edit.editor.username, user_path(edit.editor) %></b>
         <%= time_ago_in_words(edit.created_at) %>
       </div><br><br><br>
     <% end %>
