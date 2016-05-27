@@ -69,14 +69,14 @@ class ArticlesController < ApplicationController
     article = Article.find(params[:id])
     article.publish
 
-    redirect_to articles_path(article.category, article)
+    redirect_to articles_path
   end
 
   def unpublish_article
     article = Article.find(params[:id])
     article.unpublish
 
-    redirect_to articles_path(article.category, article)
+    redirect_to articles_path
   end
 
   def feature_article
@@ -90,14 +90,14 @@ class ArticlesController < ApplicationController
     # if @article.published
     #   @article.feature
     # end
-    redirect_to articles_path(@article.category.name, @article)
+    redirect_to articles_path
   end
 
   def unfeature_article
     @article = Article.find(params[:id])
     @article.unfeature
 
-    redirect_to articles_path(@article.category.name, @article)
+    redirect_to articles_path
   end
 
   private
