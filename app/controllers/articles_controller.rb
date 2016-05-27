@@ -3,6 +3,10 @@ class ArticlesController < ApplicationController
 
  def show
     @article = Article.find(params[:id])
+    unless @article.published
+      authenticate_user!
+    end
+
     @category = @article.category
     if request.xhr?
       render '_show_partial', layout: false
@@ -10,12 +14,14 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    authenticate_user!
     @article = Article.new
     @category = Category.new
     @categories = Category.all.map {|category| [category.name, category.id] }
   end
 
   def create
+    authenticate_user!
     @article = Article.new(article_params)
 
     if @article.save
@@ -42,6 +48,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    authenticate_user!
     @article = Article.find(params[:id])
     @edit = Edit.new(edit_params.merge(article_id: params[:id], editor_id: session[:user_id]))
     @edit.find_differences(@article)
@@ -53,7 +60,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    authenticate_user!
+    redirect_unless_admin
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to root_path
@@ -66,6 +73,7 @@ class ArticlesController < ApplicationController
   end
 
   def publish_article
+    authenticate_user!
     article = Article.find(params[:id])
     article.publish
 
@@ -73,6 +81,7 @@ class ArticlesController < ApplicationController
   end
 
   def unpublish_article
+    authenticate_user!
     article = Article.find(params[:id])
     article.unpublish
 
@@ -80,7 +89,9 @@ class ArticlesController < ApplicationController
   end
 
   def feature_article
+    redirect_unless_admin
     @article = Article.find(params[:id])
+    @article.publish
     @article.feature
 
     # ===========
@@ -94,6 +105,7 @@ class ArticlesController < ApplicationController
   end
 
   def unfeature_article
+    redirect_unless_admin
     @article = Article.find(params[:id])
     @article.unfeature
 

@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    authenticate_user!
     @comment = Comment.new(comment_params.merge(commenter_id: session[:user_id], article_id: params[:id]))
 
     if @comment.save
