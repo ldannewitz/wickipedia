@@ -33,16 +33,12 @@ class UsersController < ApplicationController
   end
 
   def promote_to_admin
-    @user = User.find(params[:id])
-    @user.admin = true
-    @user.save
+    User.find(params[:id]).promote
     redirect_to users_path
   end
 
   def demote_from_admin
-    @user = User.find(params[:id])
-    @user.admin = false
-    @user.save
+    User.find(params[:id]).demote
     redirect_to users_path
   end
 

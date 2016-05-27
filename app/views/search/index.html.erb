@@ -1,10 +1,13 @@
 <p>This is what you get searching for "<%= params[:term] %>"</p>
 
+
 <p class="lead result-title">Matched Articles</p>
-<% @articles = @articles.sort{|a,b| a.title <=> b.title} %>
-<% @articles.each do |article| %>
-  <p><%= link_to article.title, articles_path(article.category.name, article.id) %></p>
-<% end %>
+<% articles = user_signed_in? ? @articles : @articles.select(&:published) %>
+
+  <% articles.sort{|a,b| a.title <=> b.title} %>
+  <% articles.each do |article| %>
+    <p><%= link_to article.title, articles_path(article.category.name, article.id) %></p>
+  <% end %>
 
 <% if @categories.all.count > 0 %>
   <p class="lead result-title">Matched Categories</p>
