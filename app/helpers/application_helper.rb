@@ -19,4 +19,8 @@ module ApplicationHelper
   def authenticate_user!
     redirect_to root_path unless current_user
   end
+
+  def results?
+    !@articles.empty? || @categories.all.count > 0
+  end
 end
