@@ -13,9 +13,9 @@
 	    <p class="lead"><%= link_to category.name, a_category_path(category.name) %></p>
 	  <% end %>
 	<% end %>
-	
+
 	<% if @image_jpg %>
-		<img src="<%= @image_jpg %>" alt="dank_meme">
+		<img src="<%= @image_jpg %>" alt="dank_meme" class="dank_meme">
 	<% else %>
 		<div id="silencer"><iframe src="//giphy.com/embed/axYOThJ5Qbwac?hideSocial=true" width="480" height="240" frameborder="0" class="giphy-embed" allowfullscreen=""></iframe></div>
 	<% end %>
