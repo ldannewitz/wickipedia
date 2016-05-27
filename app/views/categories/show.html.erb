@@ -1,5 +1,5 @@
 <h3><%= @category.name %></h3>
-<% articles = current_user ? @category.articles : @category.published %>
+<% articles = current_user ? @category.articles : @category.published_articles %>
 <% articles.each do |article| %>
   <p class="lead"><%= link_to article.title, articles_path(@category.name, article.id) %> -- <%= time_ago_in_words(article.created_at) %> ago</p>
 <% end %>
