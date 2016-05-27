@@ -26,6 +26,9 @@ nav.navbar-default {
     margin-left: -8px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    box-shadow: 0 0 0;
+    display: inline;
+
   }
 }
 
@@ -33,16 +36,36 @@ nav.navbar-default {
   flex: 1 100%;
   display: flex;
   align-items: stretch;
-  margin-top: -20px;
+  margin-top: 64px;
+
+  input {
+    margin-top: 1em;
+  }
+
+  select {
+    margin-top: 1em;
+    width: 25%;
+  }
+
+  label {
+    margin: 1em 0 0 0;
+  }
 
   #side-bar {
     margin-right: 2%;
     margin-bottom: 0;
     border-right: 1px solid #ddd;
     border-top-right-radius: 0;
+    overflow: auto;
 
     #side-bar-title {
-      border-bottom: 3.5px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      background-color: whitesmoke;
+      padding: 15px;
+      padding-right: 3em;
+      font-weight: bold;
+      position: relative;
+      display: block;
     }
 
     .list-group-item {
@@ -52,6 +75,10 @@ nav.navbar-default {
     #about {
       position: absolute;
       bottom: 0;
+      padding: 15px;
+      padding-right: 57px;
+      background-color: white;
+      z-index: 50;
     }
   }
 
@@ -59,6 +86,11 @@ nav.navbar-default {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+
+.list-group-item:hover{
+  background-color: #D3ECFF;
+  }
+
 
   .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
     background-color: #2196f3;
@@ -68,5 +100,29 @@ nav.navbar-default {
 
   #page-content {
     flex: 1 100%;
+    overflow: auto;
   }
+}
+
+textarea:focus, select:focus, input:focus{
+    outline: none;
+}
+
+.content input {
+  background-color: #EAEAEA ;
+}
+
+.form-group {
+  margin: auto;
+
+  .form-control {
+  margin: auto;
+  display: inline;
+  }
+
+}
+
+.navbar-form{
+  padding-left: 2em;
+  padding-right: 2em;
 }
