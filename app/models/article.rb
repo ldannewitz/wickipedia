@@ -10,24 +10,17 @@ class Article < ActiveRecord::Base
 
   def feature
     if self.published
-      if self.featured == true
-        self.featured = false
-      else
-        self.featured = true
-      end
+      self.featured = true
       self.save
     end
     # self
   end
 
   def publish
-    if self.published == true
-      self.published = false
-    else
+    unless self.published
       self.published = true
-    end
       self.save
-
+    end
     # self
   end
 
