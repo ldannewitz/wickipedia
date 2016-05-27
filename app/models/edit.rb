@@ -3,7 +3,10 @@ class Edit < ActiveRecord::Base
   belongs_to :article
 
   def find_differences(article)
-    self.difference = Diffy::Diff.new(article.edits.last.content, self.content, context: 1).to_s
-    # self.difference = self.content - article.edits.last.content
+    if article.edits.length == 0
+      self.difference = self.content
+    else
+      self.difference = Diffy::Diff.new(article.edits.last.content, self.content, context: 1).to_s
+    end
   end
 end

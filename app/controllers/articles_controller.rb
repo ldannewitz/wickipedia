@@ -90,7 +90,7 @@ class ArticlesController < ApplicationController
     # if @article.published
     #   @article.feature
     # end
-    redirect_to @article
+    redirect_to articles_path(@article.category, @article)
   end
 
   private
