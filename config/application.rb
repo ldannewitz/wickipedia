@@ -9,13 +9,13 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
-require 'dotenv-rails'
+# require 'dotenv-rails'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Dotenv::Railtie.load
+# Dotenv::Railtie.load
 
 module Wickipedia
   class Application < Rails::Application
@@ -38,4 +38,3 @@ module Wickipedia
     # LEave this commented out ============
   end
 end
-
